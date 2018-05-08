@@ -7,6 +7,7 @@ if [ ! -d /root/.vnc/ ]; then
 fi
 
 echo 'openbox-session' >  /root/.vnc/xstartup
+chmod +x /root/.vnc/xstartup
 
 if [ -f /tmp/.X11-lock ]; then
     rm -f /tmp/.X11-lock
