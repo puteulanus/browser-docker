@@ -3,19 +3,17 @@ FROM centos:centos7
 RUN yum update
 
 # 安装工具
-RUN yum install -y git
+RUN yum install -y git epel-release
+RUN yum groupinstall -y "fonts"
 
 # 安装桌面
-RUN yum install -y xorg openbox
-
-# 安装 VNC
-RUN yum install -y tigervnc tigervnc-server
+RUN yum install -y tigervnc-server openbox
 
 # 安装浏览器
-RUN yum install -y firefox fonts-chinese
+RUN yum install -y chromium
 
 # 安装 Selenium
-RUN yum install -y centos-release-scl epel-release
+RUN yum install -y centos-release-scl
 RUN yum install -y rh-python36 -y
 RUN scl enable rh-python36 "pip install -U pip"
 RUN scl enable rh-python36 "pip install selenium"
