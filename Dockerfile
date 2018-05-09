@@ -29,6 +29,8 @@ RUN yum install -y gcc glibc-static make tmux which && \
 	git clone https://github.com/c9/core.git c9sdk && \
 	cd c9sdk && \
 	scripts/install-sdk.sh
+ADD workspace /root/workspace
+RUN cp -r 
 
 # 安装 Caddy
 RUN mkdir -p /tmp/caddy && \
@@ -50,6 +52,8 @@ RUN echo_supervisord_conf > /etc/supervisord.conf && \
 
 # 添加启动文件
 ADD run.sh /app/run.sh
+
+WORKDIR /root/workspace
 
 ENV DISPLAY=":1"
 ENV VNC_PASSWD="12345678"
