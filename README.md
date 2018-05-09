@@ -1,2 +1,2 @@
 # browser-docker
-Run firefox and selenium with docker
+Run chromium and selenium with docker
