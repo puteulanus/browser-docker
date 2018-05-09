@@ -3,7 +3,7 @@ FROM centos:centos7
 RUN yum update
 
 # 安装工具
-RUN yum install -y git epel-release
+RUN yum install -y wget git epel-release
 RUN yum groupinstall -y "fonts"
 
 # 安装桌面
@@ -31,6 +31,13 @@ RUN yum install -y gcc glibc-static make tmux which && \
 	scripts/install-sdk.sh
 
 # 安装 Caddy
+RUN mkdir -p /tmp/caddy && \
+	cd /tmp/caddy && \
+	wget -O caddy.tar.gz 'https://caddyserver.com/download/linux/amd64?license=personal' && \
+	tar zxf caddy.tar.gz && \
+	mv caddy /usr/local/bin/ && \
+	rm -rf /tmp/caddy
+ADD conf/Caddyfile /etc/caddy/Caddyfile
 
 # 安装 supervisor
 RUN yum install -y python-setuptools
