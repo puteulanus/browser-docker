@@ -1,6 +1,7 @@
 #!/bin/bash
 
 echo -e "$VNC_PASSWD\n$VNC_PASSWD\n\n" | vncpasswd
+sed -i "s/THE_PASSWORD/$VNC_PASSWD/" /etc/supervisord.d/c9.ini
 
 mkdir -p /root/.vnc/
 echo 'openbox-session' >  /root/.vnc/xstartup
