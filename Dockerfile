@@ -17,6 +17,7 @@ RUN yum install -y centos-release-scl
 RUN yum install -y rh-python36 -y
 RUN scl enable rh-python36 "pip install -U pip"
 RUN scl enable rh-python36 "pip install selenium"
+ADD conf/enable-rh-python36.sh /etc/profile.d/enable-rh-python36.sh
 
 # 安装 Supervisor
 RUN yum install -y python-setuptools
