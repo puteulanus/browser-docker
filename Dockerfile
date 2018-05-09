@@ -47,12 +47,11 @@ RUN pip install supervisor
 ADD supervisord.d /etc/supervisord.d
 RUN echo_supervisord_conf > /etc/supervisord.conf && \
 	echo '[include]' >> /etc/supervisord.conf && \
-	echo 'files = supervisord.d/*.ini' >> /etc/supervisord.conf
+	echo 'files = supervisord.d/*.ini' >> /etc/supervisord.conf && \
+	sed -i 's/\/tmp\//\/var\/run\//' /etc/supervisord.conf
 
 # 添加启动文件
 ADD run.sh /app/run.sh
-
-WORKDIR /root/workspace
 
 ENV DISPLAY=":1"
 ENV VNC_PASSWD="12345678"
