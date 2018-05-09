@@ -2,7 +2,7 @@
 // For more information see https://docs.c9.io/custom_runners.html
 {
     "cmd" : ["python", "init.py"],
-    "info" : "Started $project_path$file_name",
+    "working_dir" : "/root/workspace",
+    "info" : "Started init.py",
     "env" : {},
-    "selector" : "source.ext"
 }
