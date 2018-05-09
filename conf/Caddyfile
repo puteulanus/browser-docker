@@ -10,5 +10,6 @@
                 r (.*)
                 to /{1}
         }
+        index vnc.html
         root /usr/local/src/novnc
 }
