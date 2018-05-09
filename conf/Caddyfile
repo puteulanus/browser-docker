@@ -1,3 +1,13 @@
-0.0.0.0:80
-gzip
-proxy / 127.0.0.1:444
+0.0.0.0:80 {
+        gzip
+        proxy /vnc/ 127.0.0.1:81
+        proxy / 127.0.0.1:444
+}
+
+127.0.0.1:81 {
+        rewrite /vnc/ {
+                r (.*)
+                to /{1}
+        }
+        root /usr/local/src/novnc
+}

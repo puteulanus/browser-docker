@@ -2,7 +2,7 @@
 
 echo -e "$VNC_PASSWD\n$VNC_PASSWD\n\n" | vncpasswd
 
-mkdir -p mkdir /root/.vnc/
+mkdir -p /root/.vnc/
 echo 'openbox-session' >  /root/.vnc/xstartup
 chmod +x /root/.vnc/xstartup
 
