@@ -30,7 +30,6 @@ RUN yum install -y gcc glibc-static make tmux which && \
 	cd c9sdk && \
 	scripts/install-sdk.sh
 ADD workspace /root/workspace
-RUN cp -r 
 
 # 安装 Caddy
 RUN mkdir -p /tmp/caddy && \
