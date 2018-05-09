@@ -18,6 +18,16 @@ RUN yum install -y rh-python36 -y
 RUN scl enable rh-python36 "pip install -U pip"
 RUN scl enable rh-python36 "pip install selenium"
 
+# 安装 Supervisor
+RUN yum install -y python-setuptools
+RUN easy_install pip
+RUN pip install supervisor
+ADD supervisord.d /etc/supervisord.d
+RUN echo_supervisord_conf > /etc/supervisord.conf && \
+	echo '[include]' >> /etc/supervisord.conf && \
+	echo 'files = supervisord.d/*.ini' >> /etc/supervisord.conf && \
+	sed -i 's/\/tmp\//\/var\/run\//' /etc/supervisord.conf
+
 # 安装 noVNC
 RUN cd /usr/local/src && \
     git clone --depth=1 https://github.com/novnc/noVNC.git novnc && \
@@ -40,16 +50,6 @@ RUN mkdir -p /tmp/caddy && \
 	mv caddy /usr/local/bin/ && \
 	rm -rf /tmp/caddy
 ADD conf/Caddyfile /etc/caddy/Caddyfile
-
-# 安装 supervisor
-RUN yum install -y python-setuptools
-RUN easy_install pip
-RUN pip install supervisor
-ADD supervisord.d /etc/supervisord.d
-RUN echo_supervisord_conf > /etc/supervisord.conf && \
-	echo '[include]' >> /etc/supervisord.conf && \
-	echo 'files = supervisord.d/*.ini' >> /etc/supervisord.conf && \
-	sed -i 's/\/tmp\//\/var\/run\//' /etc/supervisord.conf
 
 # 添加启动文件
 ADD run.sh /app/run.sh
