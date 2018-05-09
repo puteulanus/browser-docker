@@ -22,6 +22,7 @@ RUN scl enable rh-python36 "pip install selenium"
 RUN cd /usr/local/src && \
     git clone --depth=1 https://github.com/novnc/noVNC.git novnc && \
 	git clone --depth=1 https://github.com/novnc/websockify.git websockify
+RUN pip install numpy
 
 # 安装 Cloud9
 RUN yum install -y gcc glibc-static make tmux which && \
