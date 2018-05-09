@@ -10,7 +10,7 @@ RUN yum groupinstall -y "fonts"
 RUN yum install -y tigervnc-server openbox
 
 # 安装浏览器
-RUN yum install -y chromium
+RUN yum install -y chromium chromedriver
 
 # 安装 Selenium
 RUN yum install -y centos-release-scl
@@ -34,7 +34,7 @@ ADD workspace /root/workspace
 # 安装 Caddy
 RUN mkdir -p /tmp/caddy && \
 	cd /tmp/caddy && \
-	wget -O caddy.tar.gz 'https://caddyserver.com/download/linux/amd64?license=personal' && \
+	wget -q -O caddy.tar.gz 'https://caddyserver.com/download/linux/amd64?license=personal' && \
 	tar zxf caddy.tar.gz && \
 	mv caddy /usr/local/bin/ && \
 	rm -rf /tmp/caddy
