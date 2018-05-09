@@ -53,6 +53,8 @@ RUN echo_supervisord_conf > /etc/supervisord.conf && \
 # 添加启动文件
 ADD run.sh /app/run.sh
 
+WORKDIR /root/workspace
+
 ENV DISPLAY=":1"
 ENV VNC_PASSWD="12345678"
 
