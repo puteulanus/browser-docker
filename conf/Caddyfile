@@ -1,6 +1,6 @@
 0.0.0.0:80 {
         gzip
-        proxy /websockify 127.0.0.1:82
+        proxy /websockify 127.0.0.1:82 { websocket }
         proxy /vnc 127.0.0.1:81
         proxy / 127.0.0.1:444
 }
