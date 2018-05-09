@@ -4,5 +4,5 @@
     "cmd" : ["python", "init.py"],
     "working_dir" : "\/root\/workspace",
     "info" : "Started init.py",
-    "env" : {},
+    "env" : {}
 }
