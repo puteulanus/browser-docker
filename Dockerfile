@@ -1,6 +1,6 @@
 FROM centos:centos7
 
-RUN yum update
+RUN yum update -y
 
 # 安装工具
 RUN yum install -y wget git epel-release
