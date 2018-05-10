@@ -2,6 +2,7 @@
 Run chromium and selenium with docker
 
 [![](https://images.microbadger.com/badges/image/puteulanus/browser-docker.svg)](https://microbadger.com/images/puteulanus/browser-docker "Get your own image badge on microbadger.com")
+[![Build Status](https://travis-ci.com/puteulanus/browser-docker.svg?branch=master)](https://travis-ci.com/puteulanus/browser-docker)
 
 ### Run:
 ```bash
