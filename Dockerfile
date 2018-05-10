@@ -71,6 +71,6 @@ WORKDIR /root/workspace
 ENV DISPLAY=":1"
 ENV VNC_PASSWD="12345678"
 
-EXPOSE 8080
+EXPOSE 80
 
 CMD bash /app/run.sh
