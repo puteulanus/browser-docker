@@ -40,7 +40,17 @@ RUN yum install -y gcc glibc-static make tmux which && \
 	cd /usr/local/src && \
 	git clone https://github.com/c9/core.git c9sdk && \
 	cd c9sdk && \
-	scripts/install-sdk.sh
+	scripts/install-sdk.sh && \
+	pip install -U virtualenv && \
+	virtualenv --python=python2 /root/.c9/python2 && \
+	source /root/.c9/python2/bin/activate && \
+	mkdir /tmp/codeintel && \
+	pip download -d /tmp/codeintel codeintel==0.9.3 && \
+	cd /tmp/codeintel && \
+	tar xf CodeIntel-0.9.3.tar.gz && \
+	mv CodeIntel-0.9.3/SilverCity CodeIntel-0.9.3/silvercity && \
+	tar czf CodeIntel-0.9.3.tar.gz CodeIntel-0.9.3 && \
+	pip install -U --no-index --find-links=/tmp/codeintel codeintel
 ADD workspace /root/workspace
 
 # 安装 Caddy
