@@ -36,7 +36,8 @@ RUN cd /usr/local/src && \
 RUN pip install numpy
 
 # 安装 Cloud9
-RUN yum install -y gcc glibc-static make tmux which && \
+RUN yum install -y gcc gcc-c++ glibc-static make \
+	tmux which python-devel && \
 	cd /usr/local/src && \
 	git clone https://github.com/c9/core.git c9sdk && \
 	cd c9sdk && \
